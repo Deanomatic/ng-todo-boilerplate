@@ -1,6 +1,10 @@
-"use strict";
-//creating an object called app. 
-var app = angular.module("ToDoApp", ["ngRoute"]);
+"use strict"; 
+//creating an object called app. .angular is making it controlable by angular
+//ngRoute allowsus to make these "when" statements like this. It is telling the page where
+//to go when something is clicked.
+var app = angular.module("ToDoApp", ["ngRoute"])
+.constant('FirebaseURL', "https://todo-list-84d8f.firebaseio.com");
+
 //app js runs the show. These conditionals are controlling what is being viewed on the page. 
 app.config(function($routeProvider) {
     $routeProvider.
@@ -12,7 +16,7 @@ app.config(function($routeProvider) {
         templateUrl: "partials/item-form.html",
         controller: "ItemNewCtrl"
     }).
-    when("/items/details", {
+    when("/items/:itemId", {
         templateUrl: "partials/item-details.html",
         controller: "ItemViewCtrl"
     }).

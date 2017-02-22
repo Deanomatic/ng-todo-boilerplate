@@ -41,7 +41,8 @@
     <div class="row">
       <div class="col-xs-12" ng-view></div>
     </div>
-
+<!-- Script tags are very important in angular. Everything is devided out into partials and controllers so
+we need to link them all.-->
 <script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="lib/node_modules/bootstrap/dist/js/bootstrap.min.js">
 </script>
@@ -52,6 +53,10 @@
 <script type="text/javascript" src="app/controllers/TodoCtrl.js"></script>
 <script type="text/javascript" src="app/controllers/ItemNewCtrl.js"></script>
 <script type="text/javascript" src="app/controllers/ItemListCtrl.js"></script>
+<script type="text/javascript" src="app/factories/ItemFactory.js"></script>
+<script type="text/javascript" src="app/controllers/ItemViewCtrl.js"></script>
+
+
 
 </body>
 </html>
