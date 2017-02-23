@@ -1,6 +1,11 @@
 "use strict";
+//Object that lets us create new items
+app.controller("ItemNewCtrl", function($scope, ItemStorage, $location, AuthFactory){ 
 
-app.controller("ItemNewCtrl", function($scope, ItemStorage, $location){ 
+    let user = AuthFactory.getUser();
+
+    $scope.title = "New Todo";
+      
 	$scope.newTask = {
 		assignedTo: "",
 		dependencies: "",
@@ -8,9 +13,10 @@ app.controller("ItemNewCtrl", function($scope, ItemStorage, $location){
 		isCompleted: false,
 		location: "",
 		task: "",
-		urgency: ""
+		urgency: "",
+        uid: user
 	};
-
+//This function allows us to create new ToDo and plug it into the newTask object
 	$scope.addNewItem = function(){
         console.log("add new item");
         ItemStorage.postNewItem($scope.newTask)
