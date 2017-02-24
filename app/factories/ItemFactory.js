@@ -53,5 +53,32 @@ app.factory("ItemStorage", (FBCreds, $q, $http, AuthFactory) => {
 		});
 	};
 
-	return {getItemList, postNewItem, deleteItem};
+	var getSingleItem = (itemId)=> {
+		return $q(function(resolve, reject){
+			$http.get(`${FBCreds.databaseURL}/items/${itemId}.json`)
+			.then(function(itemObject){
+				resolve(itemObject.data);
+			})
+			.catch(function(error){
+				reject(error);
+			});
+
+		});
+	};
+
+	var updateItem = (itemId, editedItem) => {
+		return $q(function(resolve, reject){
+			$http.patch(`${FBCreds.databaseURL}/items/${itemId}.json`,
+				//angular.toJson(editedItem) is to get rid of all the extra characters.
+			angular.toJson(editedItem))
+			.then(function(ObjectFromFirebase){
+				resolve(ObjectFromFirebase);
+			})
+			.catch(function(error){
+				reject(error);
+			});
+		});
+	};
+
+	return {getItemList, postNewItem, deleteItem, getSingleItem, updateItem};
 });

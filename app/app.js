@@ -53,7 +53,7 @@ app.config(function($routeProvider) {
         controller: "ItemEditCtrl",
         resolve: {isAuth}
     }).
-    otherwise('/items/list');
+    otherwise('/');
 
 });
 
