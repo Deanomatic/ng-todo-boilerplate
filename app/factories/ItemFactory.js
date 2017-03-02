@@ -28,7 +28,7 @@ app.factory("ItemStorage", (FBCreds, $q, $http, AuthFactory) => {
 				reject(error);
 			});
 		});
-	};
+	};  
 
 	let postNewItem = (newItem) => {
 		return $q((resolve, reject) => {

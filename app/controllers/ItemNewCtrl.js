@@ -1,4 +1,4 @@
-"use strict";
+"use strict"; 
 //Object that lets us create new items
 app.controller("ItemNewCtrl", function($scope, ItemStorage, $location, AuthFactory){ 
 

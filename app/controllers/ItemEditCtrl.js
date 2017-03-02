@@ -1,4 +1,4 @@
-"use strict"; 
+"use strict";  
 
 app.controller("ItemEditCtrl", function($scope, $location, $routeParams, ItemStorage){
   $scope.title = "Edit Item";
